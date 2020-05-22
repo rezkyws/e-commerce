@@ -10,6 +10,7 @@ if($_SESSION['username']=='')
 
 <body>
 <?php
+//session_start();
 if(!isset($_GET['content']))
 {
     $vcontent = 'home.php';
@@ -27,10 +28,9 @@ else
     </tr>
     <tr height = "50" align="center">
         <td><a href="template.php?content=<?php echo 'home.php'?>"> Home |</a>
-            <a href="template.php?content=<?php echo 'berita.php'?>">Berita |</a>
-            <a href="template.php?content=<?php echo 'mahasiswa.php'?>">Mahasiswa |</a>
             <a href="template.php?content=<?php echo 'search.php'?>">Search |</a>
             <a href="template.php?content=<?php echo 'data_barang.php'?>">Data Barang</a>
+            <a href="template.php?content=<?php echo 'summary.php'?>"></a>
         </td>
     </tr>
     <tr height = "300", align="center">

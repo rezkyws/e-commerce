@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "mahasiswa";
+$dbname = "toko_online";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,7 +11,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM data_barang";
+$sql = "SELECT * FROM barang";
 $result = $conn->query($sql);
 ?>
 <style>
@@ -26,6 +26,8 @@ $result = $conn->query($sql);
         <td>id</td>
         <td>Nama</td>
         <td>Harga</td>
+        <td>Stok</td>
+        <td>Berat</td>
         <td>FOTO</td>
         <td>Action</td>
      
@@ -37,24 +39,31 @@ $result = $conn->query($sql);
             while($row = $result->fetch_assoc()) {
         ?>
         <td><?php
-            echo $row["id"];
+            echo $row["ID_PRODUK"];
             ?></td>
         <td><?php
-            echo $row["nama"];
+            echo $row["NAMA_PRODUK"];
             ?></td>
         <td><?php
-            echo $row["harga"];
+            echo $row["HARGA_BARANG"];
             ?></td>
-        <td><img src = "./foto/<?php echo $row['namafilefoto'] ;?>" style = "width: 80px"></td>
-        <td><a href="update_barang.php?id=<?php echo $row['id']?>">Update </a><br>
-            <a href="view_detailsbarang.php?id=<?php echo $row['id']?>">Beli</a></td>
+        <td><?php
+            echo $row["STOK_PRODUK"];
+            ?></td>
+        <td><?php
+            echo $row["BERAT_BARANG"];
+            echo ' kg';
+            ?></td>
+        <td><img src = "./images/<?php echo $row['FILE_FOTO'] ;?>" style = "width: 80px"></td>
+        <td><a href="update_barang.php?id=<?php echo $row['ID_PRODUK']?>">Update </a><br>
+            <a href="view_detailsbarang.php?id=<?php echo $row['ID_PRODUK']?>">Beli</a></td>
     </tr>
     <?php
         }
     }
     ?>
-    <td align="center"><a href ="viewcart.php">VIEW CART</a></td>
-    <td align="center"><a href="form.php">Add data</a></td>
+    <td align="center"><a href="template.php?content=<?php echo 'ViewCart.php'?>">View Cart</a></td>
+    <td align="center"><a href="tambah_barang.php">Add data</a></td>
 </table>
 </body>
 <?php

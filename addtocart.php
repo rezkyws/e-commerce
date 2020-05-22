@@ -9,7 +9,8 @@ $_SESSION['id'][$i] = $_POST['id'];
 $_SESSION['idpembeli'][$i] = $_POST['idpembeli'];
 $_SESSION['namabarang'][$i] = $_POST['nama'];
 $_SESSION['hargabarang'][$i] = $_POST['harga'];
-$_SESSION['jumlahbarang'][$i] = $_POST['jumlahbarang'];
+$_SESSION['jumlah_barang'][$i] = $_POST['jumlah_barang'];
+$_SESSION['berat'][$i] = $_POST['berat'];
 	
 ?>
 

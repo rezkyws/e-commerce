@@ -5,7 +5,7 @@ function OpenCon()
     $dbhost = "localhost";
     $dbuser = "root";
     $dbpass = "";
-    $db = "mahasiswa";
+    $db = "toko_online";
     $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
     return $conn;
 }
@@ -18,9 +18,11 @@ $id = $_POST["id"];
 $nama = $_POST["name"];
 $harga = $_POST["harga"];
 $namafilefoto = $_FILES["namafilefoto"]["name"];
+$berat = $_POST["berat"];
+$stok = $_POST["stok"];
 
 //for uploading image
-$target_dir = "./foto/";
+$target_dir = "./images/";
 $target_file = $target_dir . basename($_FILES["namafilefoto"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -68,9 +70,10 @@ echo "<br>";
 
 //database query
 $conn = OpenCon();
-$sql = "INSERT INTO `data_barang`(`id`, `nama`, `harga`, `namafilefoto`) VALUES ('$id','$nama','$harga','$namafilefoto')";
+$sql = "INSERT INTO `barang`(`ID_PRODUK`, `NAMA_PRODUK`, `HARGA_BARANG`, `FILE_FOTO`, `STOK_PRODUK`, `BERAT_BARANG`) VALUES ('$id','$nama','$harga','$namafilefoto', '$stok','$berat')";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
+    header("location:template.php");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
