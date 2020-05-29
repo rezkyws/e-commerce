@@ -13,7 +13,7 @@ table,td,th{
 <h1 align=center>Rincian Pembelian</h1>
 	<br>
 	<?php
-	//session_start();
+	session_start();
 	function OpenCon()
 		 {
 			 $dbhost = "localhost";

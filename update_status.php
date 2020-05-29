@@ -24,7 +24,7 @@ if ($status == 0) {
     $sql2 = "UPDATE penjualan SET STATUS_PENJUALAN = 1 WHERE ID_TRANSAKSI =".$_GET['id'];
     if ($conn->query($sql2) === TRUE) {
         echo "update status sukses!";
-        header("location:template.php?content=penjualan.php");
+        header("location:template_admin.php?content=penjualan.php");
     } else {
         echo "Error: " . $sql2 . "<br>" . $conn->error;
     }
@@ -32,7 +32,7 @@ if ($status == 0) {
     $sql3 = "UPDATE penjualan SET STATUS_PENJUALAN = 2 WHERE ID_TRANSAKSI =".$_GET['id'];
     if ($conn->query($sql3) === TRUE) {
         echo "update status sukses!";
-        header("location:template.php?content=penjualan.php");
+        header("location:template_admin.php?content=penjualan.php");
     } else {
         echo "Error: " . $sql3 . "<br>" . $conn->error;
     }

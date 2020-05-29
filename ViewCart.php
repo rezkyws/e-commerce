@@ -20,7 +20,7 @@ table,td,th{
 	</tr>
 	<br>
 	<?php
-	//session_start();
+	session_start();
 	function OpenCon()
 		 {
 			 $dbhost = "localhost";
