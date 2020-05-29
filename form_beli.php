@@ -132,14 +132,14 @@ function test_input($data) {
 <p align="center"><span class="error">* harus diisi</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
  <br><br>
-  ID Transaksi: <input type="text" name="id" value="<?php echo $hp;?>">
+  ID Transaksi: <input type="text" name="id" value="<?php echo $id;?>">
   <span class="error">*<?php echo $idErr;?></span>
   <br><br>
   Nama: <input type="text" name="name" value="<?php echo $name;?>">
   <span class="error">* <?php echo $nameErr;?></span>
   <!-- <br><br>
-  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
-  <span class="error">* <?php echo $emailErr;?></span>
+
+
   <br><br> -->
   <br><br>
   Alamat: <textarea name="alamat" rows="5" cols="40"><?php echo $alamat;?></textarea>
@@ -148,9 +148,7 @@ function test_input($data) {
   HP: <input type="text" name="hp" value="<?php echo $hp;?>">
   <span class="error"><?php echo $hpErr;?></span>
   <br><br>
-  <!-- ID Transaksi: <input type="text" name="id" value="<?php echo $id;?>">
-  <span class="error">* <?php echo $idErr;?></span>
-  <br><br> -->
+
   Kode Pos: <input type="text" name="pos" value="<?php echo $pos;?>">
   <span class="error">* <?php echo $posErr;?></span>
   <br><br>
@@ -161,7 +159,9 @@ function test_input($data) {
   <br><br>
   <input type="submit" name="submit" value="Submit">  
 </form>
-
+<center>
+<a href="template.php?content=<?php echo 'ViewCart.php'?>">Kembali</a>
+</center>
 
 
 <?php
@@ -189,7 +189,7 @@ $gender = mysqli_real_escape_string($link, $_REQUEST['gender']);*/
  
 // Attempt insert query execution
 if($succed == True){
-$sql = "INSERT INTO penjualan (NAMA_PEMBELI, ALAMAT, NO_HP, ID_TRANSAKSI, TGL_TRANSAKSI) VALUES ('$name', '$alamat', '$hp', '$id', '$tgl')";
+$sql = "INSERT INTO penjualan (NAMA_PEMBELI, ALAMAT, NO_HP, ID_TRANSAKSI, TGL_TRANSAKSI, STATUS_PENJUALAN) VALUES ('$name', '$alamat', '$hp', '$id', '$tgl', '0')";
 if(mysqli_query($link, $sql)){
     echo "Data dimasukkan";
     //  header("location:summary.php");

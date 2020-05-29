@@ -166,7 +166,7 @@ table,td,th{
 			$total_harga = $total + $ongkir;
 			
 			echo 'Total Harga= Rp.';echo $total;echo'<br><br></td>';
-			//echo"Total Harga + Ongkir = $total_harga<br><br>";
+			echo"Total Harga + Ongkir = $total_harga<br><br>";
 
 			// $sql5 = "UPDATE ongkir SET ONGKIR_PERKG = $ongkir where `ID_TRANSAKSI` = $id_transaksi ";
 			// if ($conn->query($sql5) === TRUE) {
@@ -184,6 +184,6 @@ table,td,th{
 </body>
 <center>
 <a href="delete_all_cart.php" align=left>Konfirmasi<br></a>
-<a href="template.php?content=<?php echo 'data_barang.php'?>">Kembali</a>
+<a href="form_beli.php">Kembali</a>
 </center>
 </html>

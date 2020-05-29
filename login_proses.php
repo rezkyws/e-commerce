@@ -1,7 +1,7 @@
 <?php
 $username = $_POST['username'];
 $pass	  = $_POST['password'];
-$id_pegawai - $_POST['id_pegawai'];
+$id_pegawai = $_POST['id_pegawai'];
 
 
 include 'connection.php';
@@ -13,7 +13,7 @@ if($check>0)
 	session_start();
 	$row = mysqli_fetch_array($user);
 	$_SESSION['username'] = $row['username'];
-	header("location:template.php");
+	header("location:template_admin.php?content=penjualan.php");
 }else
 {
 	header("location:login.php");

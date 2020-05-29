@@ -6,6 +6,6 @@ unset ($_SESSION["id"]);
 
 <html>
 <body>
-"<script>alert('Order Sukses!');document.location="template.php"</script>";
+"<script>alert('Cart telah dikosongkan!');document.location="template.php?content=ViewCart.php"</script>";
 </body>
 </html>

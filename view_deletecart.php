@@ -27,4 +27,4 @@ else
 }
 
 ?>
-<meta http-equiv="refresh" content="0;URL=template.php?content=<?php echo 'data_barang.php'?>" />
+<meta http-equiv="refresh" content="0;URL=template.php?content=<?php echo 'ViewCart.php'?>" />

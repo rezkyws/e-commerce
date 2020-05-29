@@ -16,6 +16,6 @@ $_SESSION['berat'][$i] = $_POST['berat'];
 
 <html>
 <body>
-"<script>alert('Berhasil ditambahkan kedalam keranjang!');document.location="template.php?content=<?php echo 'data_barang.php'?>"</script>";
+"<script>alert('Berhasil ditambahkan kedalam keranjang!');document.location="template.php?content=<?php echo 'ViewCart.php'?>"</script>";
 </body>
 </html>

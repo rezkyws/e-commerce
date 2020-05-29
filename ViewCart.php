@@ -78,7 +78,6 @@ table,td,th{
 		 <input type="hidden" name="total" value="$total"> <br>
          <input type="submit" name="submit" value="Checkout">
 </form> -->
-<!-- <a href="template.php?content=<?php echo 'form_beli.php'?>">Checkout<br></a> -->
 <a href="form_beli.php?total='$total'">Checkout<br></a>
 <a href="delete_all_cart.php">Kosongkan Keranjang<br></a>
 <!-- <a href="form_beli.php">Checkout<br></a> -->

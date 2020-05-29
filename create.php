@@ -73,7 +73,7 @@ $conn = OpenCon();
 $sql = "INSERT INTO `barang`(`ID_PRODUK`, `NAMA_PRODUK`, `HARGA_BARANG`, `FILE_FOTO`, `STOK_PRODUK`, `BERAT_BARANG`) VALUES ('$id','$nama','$harga','$namafilefoto', '$stok','$berat')";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
-    header("location:template.php");
+    header("location:template.php?content=data_barang.php");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

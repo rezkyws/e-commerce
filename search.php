@@ -11,43 +11,46 @@ require_once'koneksi.php';
 
 <table border=1>
 <tr> 
-	<td>NIM</td>
-    <td>NAMA</td>
-    <td>UMUR</td>
-	<td>SEX</td>
-	<td>FOTO</td>
+	<td>ID PRODUK</td>
+    <td>NAMA PRODUK</td>
+    <td>STOK PRODUK</td>
+	<td>HARGA BARANG</td>
+	<td>BERAT BARANG</td>
+    <td>GAMBAR</td>
 </tr>
 <?php
 if(!ISSET($_POST['submit'])){
 
-$sql = "SELECT * FROM data_diri_mahasiswa";
+$sql = "SELECT * FROM barang";
 $query = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_array($query)){
 
 ?>
 <tr>
-<td><?php echo $row['nim']; ?></td>
- <td><?php echo $row['nama']; ?></td>
- <td><?php echo $row['umur']; ?></td>
- <td><?php echo $row['sex']; ?></td>
- <td><img src = "./foto/<?php echo $row['namafilefoto'] ;?>" style = "width: 80px"></td>
+<td><?php echo $row['ID_PRODUK']; ?></td>
+ <td><?php echo $row['NAMA_PRODUK']; ?></td>
+ <td><?php echo $row['STOK_PRODUK']; ?></td>
+ <td><?php echo $row['HARGA_BARANG']; ?></td>
+    <td><?php echo $row['BERAT_BARANG']; ?></td>
+ <td><img src = "./images/<?php echo $row['FILE_FOTO'] ;?>" style = "width: 80px"></td>
 </tr>
 
 <?php } } ?>
 
 <?php if (ISSET($_POST['submit'])){
  $cari = $_POST['nt'];
- $query2 = "SELECT * FROM data_diri_mahasiswa WHERE nama LIKE '%$cari%'";
+ $query2 = "SELECT * FROM barang WHERE NAMA_PRODUK LIKE '%$cari%'";
  
  $sql = mysqli_query($conn, $query2);
  while ($r = mysqli_fetch_array($sql)){
   ?>
 <tr>
-<td><?php echo $r['nim']; ?></td>
- <td><?php echo $r['nama']; ?></td>
- <td><?php echo $r['umur']; ?></td>
- <td><?php echo $r['sex']; ?></td>
- <td><<img src ='./foto/<?php echo $r['namafilefoto']; ?>' width='80px'></td>
+<td><?php echo $r['ID_PRODUK']; ?></td>
+ <td><?php echo $r['NAMA_PRODUK']; ?></td>
+ <td><?php echo $r['STOK_PRODUK']; ?></td>
+ <td><?php echo $r['HARGA_BARANG']; ?></td>
+    <td><?php echo $r['BERAT_BARANG']; ?></td>
+ <td><<img src ='./images/<?php echo $r['FILE_FOTO']; ?>' width='80px'></td>
 </tr>  
  <?php }} ?>
 

@@ -33,6 +33,7 @@ session_start();
    echo"Nama Barang: $namabarang<br>";
    echo"Harga Barang: $hargabarang<br>";
    echo"Berat Barang: $berat kg<br>";
+   echo"Stok tersedia: $stok<br>";
    echo'Foto Barang:<br> <img src="images/'.$foto.'" width="250" height="250"><br>';
    echo "Jumlah Pesanan: <input type='number' min='1' name='jumlah_barang' value= 1>";
    echo "<input type='hidden' name='id' value= '$id'<br>"; 
