@@ -76,7 +76,7 @@ $result = $conn->query($sql);
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-2">
-                                    <span style="font-size: 14px;font-weight: bold;color: rgb(250, 89, 29);"><b><?php echo $row['HARGA_BARANG']; ?></b></span>
+                                    <span style="font-size: 14px;font-weight: bold;color: rgb(250, 89, 29);"><b><?php echo "Rp.".$row['HARGA_BARANG']; ?></b></span>
                                 </div>
                             </div>
                             <hr>

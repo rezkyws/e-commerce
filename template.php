@@ -25,7 +25,6 @@ else
         <td><a href="template.php?content=<?php echo 'home.php'?>"> Home |</a>
             <a href="template.php?content=<?php echo 'search.php'?>">Search |</a>
             <a href="template.php?content=<?php echo 'data_barang.php'?>">Data Barang</a>
-
         </td>
     </tr>
     <tr height = "300", align="center">
