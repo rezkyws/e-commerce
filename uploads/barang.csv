@@ -1,0 +1,13 @@
+ID_PRODUK,NAMA_PRODUK,STOK_PRODUK,HARGA_BARANG,BERAT_BARANG,FILE_FOTO
+1,Handphone,17,320000,0.8,smartphome.jpg
+10,Es Cendol Maknyus,24,312000,0.4,cendol.png
+2,Laptop,59,6000000,4.3,laptop2.jpg
+3,Sepeda,19,2500000,7.2,sepeda.jpg
+4,Kocheng,40,5000000,3,kucing1.jpg
+5,Converse,32,459000,0.8,converse.png
+6,Sepatu Adidas,43,790000,0.9,adidas.png
+7,Kaos NB,26,215000,0.2,nb.png
+8,Hoodie NB,39,499999,0.3,hoodienb.png
+9,Seblak Sedap,77,147000,0.1,seblak.png
+11,Nokia,90,200000,0.7,nokia.jpg
+12,Logo,23,300000,0.5,quater.png

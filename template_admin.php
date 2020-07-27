@@ -1,54 +1,36 @@
-<?php
-session_start();
-if($_SESSION['username']=='')
-{
-    header("location:login.php");
-}
-?>
-
+<!DOCTYPE html>
 <html>
-
+<head>
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
+    <!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>-->
+</head>
 <body>
-<?php
-//session_start();
-if(!isset($_GET['content']))
-{
-    $vcontent = 'home.php';
-}
-else
-{
-    $vcontent = $_GET['content'];
-}
-?>
-<table border="1" align = "center" width = "800">
-    <tr height = "100">
-        <td colspan="3"><div align="center"></div>
-            <img src="./images/polban2.png" alt="Polban" align="right" style="width: 100px;height: 100px;"> </td>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="template_admin.php">
+        <img src="./images/polban2.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        Tokopea
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHomePage" aria-controls="navbarHomePage" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    </tr>
-    <tr height = "50" align="center">
-        <td><a href="template_admin.php?content=<?php echo 'penjualan.php'?>"> Data Penjualan </a>
-
-        </td>
-    </tr>
-    <tr height = "300", align="center">
-        <td>
-            <?php include $vcontent ?>
-        </td>
-
-        <!-- <br>
-            <tr height = "100">
-                <td align="center"><a href ="viewcart.php">VIEW CART</a></td>
-            </tr>
-        <br> -->
-        <!-- <tr height = "100">
-        <td align="center"><a href="form.php">Add data</a></td> -->
-
-    <tr height = "120">
-        <td align="center"><a href="logout.php">Logout</a></td>
-    </tr>
-</table>
+    <div class="collapse navbar-collapse" id="navbarHomePage">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="penjualan.php">Penjualan <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout.php">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br><br><br>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="./js/bootstrap.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>-->
 </body>
 </html>
-
-

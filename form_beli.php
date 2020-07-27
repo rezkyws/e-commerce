@@ -66,10 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $id = test_input($_POST["id"]);
     // check apakah format nim benar
-    if (!is_numeric($id)) {
-      $idErr = "Format id salah";
-      $error = True;
-    }
+//    if (!is_numeric($id)) {
+//      $idErr = "Format id salah";
+//      $error = True;
+//    }
   }
 
   if (empty($_POST["pos"])) {
@@ -132,7 +132,7 @@ function test_input($data) {
 <p align="center"><span class="error">* harus diisi</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
  <br><br>
-  ID Transaksi: <input type="text" name="id" value="<?php echo $id;?>">
+  Username: <input type="text" name="id" value="<?php echo $id;?>">
   <span class="error">*<?php echo $idErr;?></span>
   <br><br>
   Nama: <input type="text" name="name" value="<?php echo $name;?>">
@@ -165,10 +165,7 @@ function test_input($data) {
 
 
 <?php
-session_start();
-$i =1;
-$_SESSION['id_transaksi'][$i] = $id;
-$_SESSION['id_pos'][$i] = $pos;
+
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 $link = mysqli_connect("localhost", "root", "", "toko_online");
@@ -179,7 +176,7 @@ if($link === false){
 }
  
 
-$tgl = date('Y-m-d');
+$tgl = date('Y-m-d H:i:s');
 /* Escape user inputs for security
 $name = mysqli_real_escape_string($link, $_REQUEST['name']);
 $email = mysqli_real_escape_string($link, $_REQUEST['email']);
@@ -189,15 +186,30 @@ $gender = mysqli_real_escape_string($link, $_REQUEST['gender']);*/
  
 // Attempt insert query execution
 if($succed == True){
-$sql = "INSERT INTO penjualan (NAMA_PEMBELI, ALAMAT, NO_HP, ID_TRANSAKSI, TGL_TRANSAKSI, STATUS_PENJUALAN) VALUES ('$name', '$alamat', '$hp', '$id', '$tgl', '0')";
+$sql = "INSERT INTO penjualan (NAMA_PEMBELI, ALAMAT, NO_HP, fk_customer, TGL_TRANSAKSI, STATUS_PENJUALAN) VALUES ('$name', '$alamat', '$hp', '$id', '$tgl', '0')";
 if(mysqli_query($link, $sql)){
     echo "Data dimasukkan";
     //  header("location:summary.php");
+    $sql2 = "SELECT ID_TRANSAKSI FROM `penjualan`";
+    $result2 = $link->query($sql2);
+    session_start();
+    $i =1;
+    $_SESSION['username'][$i] = $id;
+    if ($result2->num_rows > 0) {
+// output data of each row
+    while($row2 = $result2->fetch_assoc()) {
+        $_SESSION['id_transaksi'][$i] = $row2["ID_TRANSAKSI"];
+        $_SESSION['id_pos'][$i] = $pos;
+
+        }
+
+    }
     header("location:template.php?content=summary.php");
 } else{
-    echo "ERROR";
+    echo "Error: " . $sql . "<br>" . $link->error;
 }
 }
+
 
 // $sql2 = "INSERT INTO ongkir (POS_TUJUAN, ID_TRANSAKSI) VALUES ('$pos', '$id')";
 // if(mysqli_query($link, $sql2)){

@@ -1,22 +1,13 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "toko_online";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require('connection.php');
 $sql = "SELECT * FROM barang";
 $result = $conn->query($sql);
+include 'template.php';
 ?>
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
     <style>
@@ -97,10 +88,8 @@ $result = $conn->query($sql);
         ?>
     </div>
     <div class="text-center">
-        <hr>
-        <a href="template.php?content=<?php echo 'ViewCart.php'?>">View Cart</a><hr>
-        <a href="tambah_barang.php">Add data</a><br><hr>
-        <a href="update_barang.php">Update Barang</a><br>
+<!--        <a href="tambah_barang.php">Add data</a><br><hr>-->
+<!--        <a href="update_barang.php">Update Barang</a><br>-->
     </div>
 </div>
 

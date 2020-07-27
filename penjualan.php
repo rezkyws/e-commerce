@@ -1,18 +1,9 @@
 <html>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "toko_online";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require('connection.php');
 $sql = "SELECT * FROM penjualan";
 $result = $conn->query($sql);
+include 'template_admin.php';
 ?>
 <style>
 </style>
@@ -73,16 +64,14 @@ $result = $conn->query($sql);
             ?></td>
         <td><?php
             $status = $row["STATUS_PENJUALAN"];?>
-            <?php  if ($status == '0'){ ?>
-                <a href="update_status.php?id=<?php echo $row['ID_TRANSAKSI']?>">Sudah dibayar </a><br>
-            <?php } ?>
-            <?php if($status == '1'){ ?>
-                <a href="update_status.php?id=<?php echo $row['ID_TRANSAKSI']?>">Sudah dikirim </a><br>
+            <?php  if ($status == '0' or $status == '1'){ ?>
+                <a href="update_status.php?id=<?php echo $row['ID_TRANSAKSI']?>">Update Status </a><br>
             <?php } ?>
             <?php if($status == '2'){ ?>
-                <a>Transaksi Selesai </a><br>
+                <a href="#">Update Status </a><br>
             <?php } ?></td>
-        <td><a href="detail_pembelian.php?id=<?php echo $row['ID_TRANSAKSI']?>">Detail Pembelian</a></td>
+        <td><a href="detail_pembelian.php?id=<?php echo $row['ID_TRANSAKSI']
+            ?>">Detail Pembelian</a></td>
     </tr>
     <?php
         }
@@ -91,6 +80,11 @@ $result = $conn->query($sql);
     <!-- <td align="center"><a href ="viewcart.php">VIEW CART</a></td>
     <td align="center"><a href="form.php">Add data</a></td> -->
 </table>
+<center>
+    <p><a href="export.php"><button>Export Data ke Excel</button></a></p>
+    <p><a href="import.php"><button>Import data barang</button></a></p>
+    <p><a href="generate_pdf.php"><button>Export ke PDF</button></a></p>
+</center>
 </body>
 <?php
 $conn->close();

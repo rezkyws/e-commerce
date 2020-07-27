@@ -1,22 +1,7 @@
 <?php
 session_start();
-// $id = $_SESSION['id'];
-
-	function OpenCon()
-		 {
-			 $dbhost = "localhost";
-			 $dbuser = "root";
-			 $dbpass = "";
-			 $db = "toko_online";
-			 $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-			return $conn;
-		 }
-		function CloseCon($conn)
-		 {
-			$conn -> close();
-		 }
-   $conn = OpenCon();
-
+require('connection.php');
+include 'template.php';
    $sql = "SELECT * FROM `barang` WHERE ID_PRODUK =".$_GET['id'];
    $result = $conn->query($sql);
 	
@@ -27,7 +12,7 @@ session_start();
    $foto = $row['FILE_FOTO'];
    $stok = $row['STOK_PRODUK'];
    $berat = $row['BERAT_BARANG'];
-   echo '<center><br><br><br><br><br><br>';
+   echo '<center>';
    echo '<form action="addtocart.php"  method="post">';
    echo"Kode Barang : $id<br>";
    echo"Nama Barang: $namabarang<br>";
@@ -43,8 +28,9 @@ session_start();
    echo "<input type='hidden' name='nama' value= '$namabarang'<br>";
    echo "<input type='hidden' name='harga' value= '$hargabarang'<br>";
    echo '<input type="submit" value="Submit"><br>';
+$conn->close();
 ?>
 
 <html>
-<a href="template.php?content=<?php echo 'data_barang.php'?>">BACK</a>
+<a href="data_barang.php">BACK</a>
 </html>
