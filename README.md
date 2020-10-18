@@ -1,2 +1,2 @@
 # e-commerce
-Personal Project
+Just my first web app
